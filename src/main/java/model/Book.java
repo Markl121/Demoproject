@@ -20,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @NamedQueries({ @NamedQuery(name = "Book.all", query = "SELECT b FROM Book b"),
 		@NamedQuery(name = "Book.byAuthor", query = "SELECT b FROM Book b WHERE :author MEMBER OF b.authors"),
+		@NamedQuery(name = "Book.byUser", query = "SELECT b FROM Book b WHERE :users MEMBER OF b.users"),
 		@NamedQuery(name = "Book.byIsbn", query = "SELECT b FROM Book b WHERE b.isbn = :isbn"),
 		@NamedQuery(name = "Book.byNameLike", query = "SELECT b FROM Book b WHERE b.name LIKE :str")
 
@@ -45,6 +46,9 @@ public class Book implements IStorable {
 
 	@ManyToMany // (cascade=CascadeType.ALL)
 	private Set<Author> authors;
+
+	@ManyToMany // (cascade=CascadeType.ALL)
+	private Set<User> users;
 
 	@ElementCollection
 	@JoinColumn(name = "bookId")
@@ -108,6 +112,30 @@ public class Book implements IStorable {
 			this.authors = new HashSet<>();
 
 		this.authors.add(author);
+
+		return this;
+	}
+
+	public Set<User> getUser() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+	public Book addUser(User user) {
+		if (this.users == null)
+			this.users = new HashSet<>();
+
+		this.users.add(user);
+
+		return this;
+	}
+
+	public Book deleteUser(User user) {
+		if (this.users != null)
+			this.users.remove(user);
 
 		return this;
 	}

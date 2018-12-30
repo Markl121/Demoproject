@@ -10,6 +10,7 @@ import dao.DaoFactory;
 import dao.interfaces.IBookDao;
 import model.Author;
 import model.Book;
+import model.User;
 
 public class BookJpaDao implements IBookDao {
 
@@ -103,6 +104,20 @@ public class BookJpaDao implements IBookDao {
 		return list;
 	}
 
+	@Override
+	public List<Book> findByUser(User user) {
+		String query = "Book.byUser";
+		EntityManager em = EMFactory.getEntityManager();
+//		User user = new BorrowerJpaDao().readByUsername(username);
+
+		if (user == null)
+			return null;
+
+		List<Book> list = em.createNamedQuery(query, Book.class).setParameter("users", user).getResultList();
+		em.close();
+		return list;
+	}
+		
 	@Override
 	public List<Book> findByAuthorNameLike(String name) {
 		List<Author> authors = DaoFactory.getAuthorDao().readByNameLike(name);

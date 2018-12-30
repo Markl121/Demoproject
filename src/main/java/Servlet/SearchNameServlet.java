@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import businessLogic.UserBookBusinessLogic;
 import dao.jpa.JpaDaoFactory;
 import model.Book;
+import model.User;
 
 /**
  * Servlet implementation class FormHandling
@@ -29,7 +31,11 @@ public class SearchNameServlet extends HttpServlet {
 		UserBookBusinessLogic ubl = new UserBookBusinessLogic();
 		ubl.setBookDao(JpaDaoFactory.getBookDao());
 		Set<Book> list;
-		list = ubl.readAll();
+//		list = ubl.readAll();
+		
+		HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+		list = ubl.findByUser(user);
 
 //		list = ubl.searchByName(request.getParameter("term"));
 

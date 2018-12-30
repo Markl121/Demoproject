@@ -39,7 +39,7 @@ import model.User;
 		Book newbook = new Book();
 		newbook.setName("shanshan")
 					.setIsbn("123456").setDesc("shanshan")
-					.setImgUrl("http://placeimg.com/640/480/people").addAuthor(newauth);
+					.setImgUrl("http://placeimg.com/640/480/people").addAuthor(newauth).addUser(newshanshan);
 		
 		em.getTransaction().begin();
 		em.persist(newJoe);

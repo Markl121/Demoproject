@@ -4,7 +4,7 @@ import java.util.Set;
 
 import model.Book;
 import model.Borrower;
-
+import model.User;
 
 import java.util.HashSet;
 import java.util.List;
@@ -31,6 +31,10 @@ public class UserBookBusinessLogic {
 
 	public Set<Book> searchByAuthor(String authorName) {
 		return null;
+	}
+
+	public Set<Book> findByUser(User user) {
+		return new HashSet<>(bookDao.findByUser(user));
 	}
 
 }

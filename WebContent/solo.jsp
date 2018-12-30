@@ -64,9 +64,10 @@
 				</div>
 			</li>
 			<li>
+			
 				<div class="Description">
 					<div class="Item">
-						<img src="img\book2.jpg">
+						<a href="http://www.w3.org"><img src="img\book2.jpg"/></a>
 					</div>
 
 					<h3 title="Simplicity Parenting" class="title-name"

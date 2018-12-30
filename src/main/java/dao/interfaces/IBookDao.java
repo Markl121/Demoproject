@@ -6,6 +6,7 @@ import dao.interfaces.generic.IBatchCreate;
 import dao.interfaces.generic.IReadable;
 import model.Author;
 import model.Book;
+import model.User;
 
 public interface IBookDao extends IBatchCreate<Book>, IReadable<Book> {
 
@@ -16,4 +17,6 @@ public interface IBookDao extends IBatchCreate<Book>, IReadable<Book> {
 	List<Book> findByNameLike(String name);
 
 	Book findByIsbn(String isbn);
+
+	List<Book> findByUser(User user);
 }
