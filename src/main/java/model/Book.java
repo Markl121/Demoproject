@@ -24,12 +24,8 @@ import javax.persistence.SequenceGenerator;
 		@NamedQuery(name = "Book.byNameLike", query = "SELECT b FROM Book b WHERE b.name LIKE :str")
 
 })
-public class Book implements IStorable, Serializable {
+public class Book implements IStorable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3998948858912239675L;
 	@Id
 	@Column(name = "bookId")
 	@SequenceGenerator(name = "seq_bookId", sequenceName = "seq_bookId", initialValue = 1, allocationSize = 1)

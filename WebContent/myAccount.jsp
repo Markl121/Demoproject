@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List Output</title>
+<title>My Account</title>
 </head>
 <body>
 	<h1>Last point in the workflow! - JSP</h1>

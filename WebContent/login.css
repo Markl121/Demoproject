@@ -47,6 +47,10 @@ form:after {
     clear: both;
     visibility: hidden;
 }
+
+.message p {
+	color: red;
+}
 .container { margin: auto; padding-top: 115px;}
 #content {
     background: #f9f9f9;
