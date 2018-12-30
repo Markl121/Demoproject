@@ -50,7 +50,11 @@ public abstract class UserJpaDao<T extends User> implements IUserDao<T> {
 		String queryName = String.format("%s.byUsername", clz.getSimpleName());
 
 		EntityManager em = EMFactory.getEntityManager();
-		T user = em.createNamedQuery(queryName, clz).setParameter("uname", username).getSingleResult();
+		T user = null;
+		try {
+			user = em.createNamedQuery(queryName, clz).setParameter("uname", username).getSingleResult();
+		} catch (NoResultException e) {
+		}
 		em.close();
 		return user;
 	}

@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="solo.css" />
+<link rel="stylesheet" href="./solo.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" />
 <link rel="stylesheet"
@@ -15,6 +15,7 @@
 	href="https://fonts.googleapis.com/css?family=Lato">
 
 </head>
+
 
 <body>
 	<header class="main-header">
@@ -27,11 +28,13 @@
 							<li><a href="login.jsp"><button>Login</button></a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath}/logout"><button>Logout</button></a></li>
-							<!-- <p>"${user.username}"</p> -->
+							<li><a href="#">Welcome ${user.username}</a></li>
+							<li><a href="#">My account</a></li>
+							<li><a href="${pageContext.request.contextPath}/logout">
+									<button>Logout</button>
+							</a></li>
 						</c:otherwise>
 					</c:choose>
-					<li><a href="#">My account</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -182,10 +185,17 @@
 
 				<!-- <label for="country">Country</label> -->
 				<select name="genre">
-					<option value="australia">Australia</option>
-					<option value="canada">Canada</option>
-					<option value="usa">USA</option>
-				</select> <br /> <input type="submit" value="Submit">
+					<option value="" disabled selected>Favorite Genre...</option>
+					<option value="anime">Anime</option>
+					<option value="romance">Romance</option>
+					<option value="scary">Scary</option>
+				</select> 
+				<c:if test="${not empty param.err}">
+					<div class="message">
+						<p>${error}</p>
+					</div>
+				</c:if>
+				<br /> <input type="submit" value="Submit">
 			</form>
 		</div>
 	</div>

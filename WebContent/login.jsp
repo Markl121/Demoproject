@@ -13,31 +13,38 @@
 </head>
 
 <body>
-    <div class="container">
-    	<c:if test="${not empty param.err}">
-    	<div class="message"><p>username or password is wrong!</p></div>
-    	</c:if>
-        <section id="content">
-            <form action="login" method="post">
-                <h1>Login Form</h1>
-                <div>
-                    <input type="text" placeholder="Username" id="username" name="username"/>
-                </div>
-                <div>
-                    <input type="password" placeholder="Password" id="password" name="password"/>
-                </div>
-                <div class="user-options"><select name="type">
-								<option value="Reader">Reader</option>
-								<option value="Admin">Admin</option>
-							</select></div>
-                <div>
-                    <input type="submit" value="Log in" />
-                    <a href="solo.jsp">Cancel</a>
-                    <a href="Register.jsp">Register</a>
-                </div>
-            </form>
-        </section>
-    </div>
+	<div class="container">
+		<section id="content">
+			<form action="login" method="post">
+				<h1>Login Form</h1>
+				<div>
+					<input type="text" placeholder="Username" id="username"
+						name="username" />
+				</div>
+				<div>
+					<input type="password" placeholder="Password" id="password"
+						name="password" />
+				</div>
+				<div class="user-options">
+					<select name="type">
+						<option value="Reader">Reader</option>
+						<option value="Admin">Admin</option>
+					</select>
+				</div>
+
+				<c:if test="${not empty param.err}">
+					<br />
+					<div class="message">
+						<p>Username or password is wrong!</p>
+					</div>
+				</c:if>
+				<div>
+					<input type="submit" value="Log in" /> <a href="solo.jsp">Cancel</a>
+					<a href="Register.jsp">Register</a>
+				</div>
+			</form>
+		</section>
+	</div>
 </body>
 
 </html>

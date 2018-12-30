@@ -13,32 +13,37 @@
 <title>Register from here</title>
 </head>
 <body>
- <div class="container">
-     <div class="container">
-    	<c:if test="${not empty param.err}">
-    	<div class="message"><p>${error}</p></div>
-    	</c:if>
-        <section id="content">
-            <form action="Register" method="post">
-                <h1>Register Form</h1>
-                <div>
-                    <input type="text" placeholder="Username" id="username" name="username"/>
-                </div>
-                <div>
-                    <input type="text" placeholder="email" id="email" name="email"/>
-                </div>
-                <div>
-                    <input type="password" placeholder="Password" id="password" name="password"/>
-                </div>
-                 <div class="user-options"><select name="type">
-								<option value="Reader">Reader</option>
-								<option value="Admin">Admin</option>
-							</select></div>
-                <div>
-                    <input type="submit" value="Register" />
-                </div>
-            </form>
-        </section>
-    </div>
+	<div class="container">
+		<section id="content">
+			<form action="Register" method="post">
+				<h1>Register Form</h1>
+				<div>
+					<input type="text" placeholder="Username" id="username"
+						name="username" />
+				</div>
+				<div>
+					<input type="text" placeholder="email" id="email" name="email" />
+				</div>
+				<div>
+					<input type="password" placeholder="Password" id="password"
+						name="password" />
+				</div>
+				<div class="user-options">
+					<select name="type">
+						<option value="Reader">Reader</option>
+						<option value="Admin">Admin</option>
+					</select>
+				</div>
+				<c:if test="${not empty param.err}">
+					<div class="message">
+						<p>${error}</p>
+					</div>
+				</c:if>
+				<div>
+					<input type="submit" value="Register" /> <a href="login.jsp">Cancel</a>
+				</div>
+			</form>
+		</section>
+	</div>
 </body>
 </html>
