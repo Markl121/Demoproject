@@ -39,21 +39,19 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String type = request.getParameter("type");
-	
-		Class<? extends User> userType = null;
-		 if (type.equals("Reader"))
-		 {
-		 	userType = Borrower.class;
-		 }
-		 else if (type.equals("Admin"))
-		 	userType = Admin.class;
-		 else
-		 	throw new ServletException("Unrecognised User type when logging in");
 		
-		AuthenticationBusinessLogic<Borrower> abl =new AuthenticationBusinessLogic<>(Borrower.class);
-		abl.setAuthDao(JpaDaoFactory.getBorrowerDao());
+		Class<? extends User> userType = null;
+		if (type.equals("Reader"))
+			userType = Borrower.class;
+		else if (type.equals("Admin"))
+			userType = Admin.class;
+		else
+			throw new ServletException("Unrecognised User type when logging in");
+		
+		AuthenticationBusinessLogic<? extends User> abl =new AuthenticationBusinessLogic<>(userType);
+		abl.setAuthDao(DaoFactory.getUserDao(userType));
 		try{
-			abl.register(username, password, email);
+			abl.register(username, password, email, type);
 			
 		}catch(UserDataException e){
 			HttpSession session =request.getSession();

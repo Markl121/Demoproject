@@ -1,5 +1,6 @@
 package businessLogic;
 
+import dao.interfaces.IUserDao;
 import dao.interfaces.generic.Authenticator;
 import exceptions.UserDataException;
 import model.Admin;
@@ -21,13 +22,13 @@ public class AuthenticationBusinessLogic < T extends User > {
 
 	}
 
-	public void setAuthDao(Authenticator < T > authDao) {
+	public void setAuthDao(IUserDao<? extends User> iUserDao) {
 
-		this.authDao = authDao;
+		this.authDao = (Authenticator<T>) iUserDao;
 
 	}
 
-	public T register(String username, String password, String email)
+	public T register(String username, String password, String email, String type)
 
 	throws UserDataException {
 
@@ -61,7 +62,7 @@ public class AuthenticationBusinessLogic < T extends User > {
 
 
 
-	public T login(String username, String password) {
+	public T login(String username, String password, String type) {
 
 		if (username == null || username.length() == 0 || username.length() > 20 || password.length() == 0
 
@@ -72,7 +73,7 @@ public class AuthenticationBusinessLogic < T extends User > {
 
 		}
 
-		return authDao.login(username, password);
+		return authDao.login(username, password, type);
 
 	}
 

@@ -78,7 +78,7 @@ public abstract class UserJpaDao<T extends User> implements IUserDao<T> {
 	}
 
 	@Override
-	public T login(String username, String password) {
+	public T login(String username, String password, String type) {
 		String queryName = String.format("%s.login", clz.getSimpleName());
 
 		EntityManager em = EMFactory.getEntityManager();
@@ -96,7 +96,7 @@ public abstract class UserJpaDao<T extends User> implements IUserDao<T> {
 
 	@Override
 	public boolean changePassword(T t, String oldPassword, String newPassword) {
-		T found = login(t.getUsername(), oldPassword);
+		T found = login(t.getUsername(), oldPassword, "User");
 		if (found != null) {
 			try {
 				found.setPassword(newPassword);

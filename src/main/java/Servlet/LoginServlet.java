@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 			throw new ServletException("Unrecognised User type when logging in");
 
 		IUserDao<? extends User> dao = DaoFactory.getUserDao(userType);
-		User loggedInUser = dao.login(uname, pw);
+		User loggedInUser = dao.login(uname, pw, type);
 
 		if (loggedInUser == null) {
 			response.sendRedirect("login.jsp?err=1");
