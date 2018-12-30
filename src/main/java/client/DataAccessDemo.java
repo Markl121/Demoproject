@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import exceptions.UserDataException;
 import model.Admin;
+import model.Book;
 import model.Borrower;
 import model.User;
 
@@ -31,10 +32,16 @@ import model.User;
 					.setPassword("123456").setFirstName("shanshan")
 					.setLastName("Gu").setEmail("joejoe@bob.com");
 		
+		Book newbook = new Book();
+		newbook.setName("shanshan")
+					.setIsbn("123456").setDesc("shanshan")
+					.setImgUrl("http://placeimg.com/640/480/people");
+		
 		em.getTransaction().begin();
 		em.persist(newJoe);
 		em.persist(newAdmin);
 		em.persist(newshanshan);
+		em.persist(newbook);
 		em.getTransaction().commit();
 		
 		em.close();

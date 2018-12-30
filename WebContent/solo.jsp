@@ -29,7 +29,7 @@
 						</c:when>
 						<c:otherwise>
 							<li><a href="#">Welcome ${user.username}</a></li>
-							<li><a href="#">My account</a></li>
+							<li><a href="searchBookName">My account</a></li>
 							<li><a href="${pageContext.request.contextPath}/logout">
 									<button>Logout</button>
 							</a></li>
@@ -173,7 +173,7 @@
 		<!-- <form id="contact_form"> -->
 
 		<div>
-			<form action="/action_page.php">
+			<form action="/solo.jsp">
 				<p>Send us your message. We will get back to you within 24
 					hours!</p>
 
