@@ -156,13 +156,14 @@ public class BookJpaDao implements IBookDao {
 //}
 
 	@Override
-	public List<Book> addUser(User user, int id) {
+	public List<Book> addUser(User user, Book book) {
 		String query = "Book.byUser";
 
-		if (user == null)
-			return null;
+//		if (user == null)
+//			return null;
 		EntityManager em = EMFactory.getEntityManager();
-		Book book = em.find(Book.class, id);
+//		Book book = em.find(Book.class, id);
+
 		em.getTransaction().begin();
 
 		book.addUser(user);

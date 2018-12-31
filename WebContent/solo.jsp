@@ -61,7 +61,12 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="1"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 			<li>
 
@@ -74,11 +79,11 @@
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
 
-					<form name="AddbookServlet" method="POST" action="addbookServlet">
-						<input type="hidden" name="param1" value="1"> <input
-							type="submit" value="Add">
-					</form>
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="2"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 			<li>
 				<div class="Description">
@@ -89,7 +94,13 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
+
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="3"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 			<li>
 				<div class="Description">
@@ -100,7 +111,13 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
+
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="4"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 			<li>
 				<div class="Description">
@@ -111,7 +128,12 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="5"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 			<li>
 				<div class="Description">
@@ -122,7 +144,14 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
+
+
 				</div>
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="6"> <input
+						type="submit" value="Add">
+				</form>
 			</li>
 		</ul>
 	</div>

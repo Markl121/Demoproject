@@ -116,7 +116,7 @@ public class Book implements IStorable {
 		return this;
 	}
 
-	public Set<User> getUser() {
+	public Set<User> getUsers() {
 		return users;
 	}
 
@@ -125,10 +125,9 @@ public class Book implements IStorable {
 	}
 
 	public Book addUser(User user) {
-		if (this.users.contains(user)) return null;
 		if (this.users == null)
 			this.users = new HashSet<>();
-
+		
 		this.users.add(user);
 
 		return this;

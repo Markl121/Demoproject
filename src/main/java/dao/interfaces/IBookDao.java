@@ -20,5 +20,7 @@ public interface IBookDao extends IBatchCreate<Book>, IReadable<Book> {
 
 	List<Book> findByUser(User user);
 
-	List<Book> addUser(User user, int id);
+//	List<Book> addUser(User user, int id);
+
+	List<Book> addUser(User user, Book book);
 }

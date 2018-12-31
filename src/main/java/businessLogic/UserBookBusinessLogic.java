@@ -20,8 +20,8 @@ public class UserBookBusinessLogic {
 	public void setBookDao(IBookDao bookDao) {
 		this.bookDao = bookDao;
 	}
-	
-	public Set<Book> readAll(){
+
+	public Set<Book> readAll() {
 		return new HashSet<>(bookDao.readAll());
 	}
 
@@ -38,7 +38,13 @@ public class UserBookBusinessLogic {
 	}
 
 	public Set<Book> addUser(User user, int id) {
-		return new HashSet<>(bookDao.addUser(user, id));
+		Book b = bookDao.readById(id);
+
+		if (b.getUsers().contains(user)) {
+			return new HashSet<>(bookDao.findByUser(user));
+		} else
+
+			return new HashSet<>(bookDao.addUser(user, b));
 	}
 
 }
