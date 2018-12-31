@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Last point in the workflow! - JSP</h1>
-	<p>
+	<a href="solo.jsp">Home</a>
 	<h3>Books:</h3>
 
 	<c:choose>
@@ -19,7 +19,9 @@
 		<c:otherwise>
 			<ul>
 				<c:forEach items="${ books }" var="b">
-					<li><img src=${ b.getImgUrl() }></li>
+					<li>
+						<p>${ b.getDesc() }</p> <img src=${ b.getImgUrl() }>
+					</li>
 				</c:forEach>
 			</ul>
 		</c:otherwise>
@@ -42,12 +44,6 @@
 			out.append("</ul>");
 		}
 	%> --%>
-	<h3>Original Search term - EL:</h3>
-	${ param.term }
-	</p>
-
-
-
-
+	<a href="#">Back to Top</a>
 </body>
 </html>
