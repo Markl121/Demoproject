@@ -64,15 +64,20 @@
 				</div>
 			</li>
 			<li>
-			
+
 				<div class="Description">
 					<div class="Item">
-						<a href="http://www.w3.org"><img src="img\book2.jpg"/></a>
+						<img src="img\book2.jpg" />
 					</div>
 
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
+
+					<form name="AddbookServlet" method="POST" action="addbookServlet">
+						<input type="hidden" name="param1" value="1"> <input
+							type="submit" value="Add">
+					</form>
 				</div>
 			</li>
 			<li>
@@ -190,7 +195,7 @@
 					<option value="anime">Anime</option>
 					<option value="romance">Romance</option>
 					<option value="scary">Scary</option>
-				</select> 
+				</select>
 				<c:if test="${not empty param.err}">
 					<div class="message">
 						<p>${error}</p>

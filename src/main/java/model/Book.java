@@ -125,6 +125,7 @@ public class Book implements IStorable {
 	}
 
 	public Book addUser(User user) {
+		if (this.users.contains(user)) return null;
 		if (this.users == null)
 			this.users = new HashSet<>();
 
@@ -133,7 +134,7 @@ public class Book implements IStorable {
 		return this;
 	}
 
-	public Book deleteUser(User user) {
+	public Book removeUser(User user) {
 		if (this.users != null)
 			this.users.remove(user);
 
@@ -144,8 +145,13 @@ public class Book implements IStorable {
 		return publishedDate;
 	}
 
-	public Book setPublishedDate(LocalDate publishedDate) {
-		this.publishedDate = publishedDate;
+//	public Book setPublishedDate(LocalDate publishedDate) {
+//		this.publishedDate = publishedDate;
+//		return this;
+//	}
+
+	public Book setPublishedDate() {
+		this.publishedDate = LocalDate.now();
 		return this;
 	}
 

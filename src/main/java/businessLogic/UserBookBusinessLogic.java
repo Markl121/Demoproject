@@ -25,7 +25,7 @@ public class UserBookBusinessLogic {
 		return new HashSet<>(bookDao.readAll());
 	}
 
-	public Set<Book> searchByName(String name) {		
+	public Set<Book> searchByName(String name) {
 		return new HashSet<>(bookDao.findByNameLike(name));
 	}
 
@@ -35,6 +35,10 @@ public class UserBookBusinessLogic {
 
 	public Set<Book> findByUser(User user) {
 		return new HashSet<>(bookDao.findByUser(user));
+	}
+
+	public Set<Book> addUser(User user, int id) {
+		return new HashSet<>(bookDao.addUser(user, id));
 	}
 
 }

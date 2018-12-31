@@ -19,7 +19,7 @@
 		<c:otherwise>
 			<ul>
 				<c:forEach items="${ books }" var="b">
-					<li>${ b }</li>
+					<li><img src=${ b.getImgUrl() }></li>
 				</c:forEach>
 			</ul>
 		</c:otherwise>

@@ -117,7 +117,7 @@ public class BookJpaDao implements IBookDao {
 		em.close();
 		return list;
 	}
-		
+
 	@Override
 	public List<Book> findByAuthorNameLike(String name) {
 		List<Author> authors = DaoFactory.getAuthorDao().readByNameLike(name);
@@ -141,5 +141,35 @@ public class BookJpaDao implements IBookDao {
 		Book book = em.createNamedQuery(queryName, Book.class).setParameter("isbn", isbn).getSingleResult();
 		em.close();
 		return book;
+	}
+
+//	@Override
+//	public Book update(String name) {
+//	Book user = em.find(User.class, );
+//
+//	em.getTransaction().begin();
+//
+//	Book.user(user);
+//	em.getTransaction().commit();
+//
+//	
+//}
+
+	@Override
+	public List<Book> addUser(User user, int id) {
+		String query = "Book.byUser";
+
+		if (user == null)
+			return null;
+		EntityManager em = EMFactory.getEntityManager();
+		Book book = em.find(Book.class, id);
+		em.getTransaction().begin();
+
+		book.addUser(user);
+
+		em.getTransaction().commit();
+		List<Book> list = em.createNamedQuery(query, Book.class).setParameter("users", user).getResultList();
+		em.close();
+		return list;
 	}
 }
