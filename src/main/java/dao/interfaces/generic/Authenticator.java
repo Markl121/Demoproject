@@ -8,7 +8,7 @@ public interface Authenticator<T extends User> {
 
 	T register(T t);
 
-	T login(String username, String password);
+	T login(String username, String password, String type);
 
 	boolean changePassword(T t, String oldPassword, String newPassword);
 

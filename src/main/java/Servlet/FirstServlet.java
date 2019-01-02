@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FirstServlet
  */
-@WebServlet("/")
+//@WebServlet("/")
 public class FirstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -49,7 +49,7 @@ public class FirstServlet extends HttpServlet {
 		out.append("input type=\"text\" name=\"someText\" />");
 		out.append("input type=\"submit\" value=\"send message\" />");
 		out.append("</form></p></body></html>");
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("solo.jsp");
 		
 	}
 

@@ -6,15 +6,27 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="solo.css" />
+<link rel="stylesheet" href="./solo.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato">
-
+<script type="text/javascript">
+            function validate()
+            {
+                var a = document.forms["contact"]["name"].value;
+                var b = document.forms["contact"]["email"].value;
+                var c = document.forms["contact"]["genre"].value;
+                if (a == "" || b == "" || c == "") {
+                    alert("Please filled out all fields in contact us form");
+                    return false;
+                  }
+            };
+        </script>
 </head>
+
 
 <body>
 	<header class="main-header">
@@ -27,11 +39,13 @@
 							<li><a href="login.jsp"><button>Login</button></a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath}/logout"><button>Logout</button></a></li>
-							<!-- <p>"${user.username}"</p> -->
+							<li><a href="#">Welcome ${user.username}</a></li>
+							<li><a href="searchBookName">My account</a></li>
+							<li><a href="${pageContext.request.contextPath}/logout">
+									<button>Logout</button>
+							</a></li>
 						</c:otherwise>
 					</c:choose>
-					<li><a href="#">My account</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -58,18 +72,35 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+				</div> <c:choose>
+					<c:when test="${not empty sessionScope.user}">
+						<form name="AddbookServlet" method="POST" action="addbookServlet">
+							<input type="hidden" name="param1" value="1"> <input
+								type="submit" value="Add">
+						</form>
+					</c:when>
+				</c:choose>
 			</li>
 			<li>
+
 				<div class="Description">
 					<div class="Item">
-						<img src="img\book2.jpg">
+						<img src="img\book2.jpg" />
 					</div>
 
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+				</div><c:choose>
+					<c:when test="${not empty sessionScope.user}">
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="2"> <input
+						type="submit" value="Add">
+				</form>
+					</c:when>
+				</c:choose>
 			</li>
 			<li>
 				<div class="Description">
@@ -80,7 +111,16 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+
+				</div><c:choose>
+					<c:when test="${not empty sessionScope.user}">
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="3"> <input
+						type="submit" value="Add">
+				</form>
+					</c:when>
+				</c:choose>
 			</li>
 			<li>
 				<div class="Description">
@@ -91,7 +131,16 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+
+				</div><c:choose>
+					<c:when test="${not empty sessionScope.user}">
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="4"> <input
+						type="submit" value="Add">
+				</form>
+					</c:when>
+				</c:choose>
 			</li>
 			<li>
 				<div class="Description">
@@ -102,7 +151,15 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+				</div><c:choose>
+					<c:when test="${not empty sessionScope.user}">
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="5"> <input
+						type="submit" value="Add">
+				</form>
+					</c:when>
+				</c:choose>
 			</li>
 			<li>
 				<div class="Description">
@@ -113,7 +170,17 @@
 					<h3 title="Simplicity Parenting" class="title-name"
 						data-media-id="716633" tabindex="-1">Simplicity Parenting</h3>
 					<p class="title-author">by Kim John Payne, M.Ed.</p>
-				</div>
+
+
+
+				</div><c:choose>
+					<c:when test="${not empty sessionScope.user}">
+				<form name="AddbookServlet" method="POST" action="addbookServlet">
+					<input type="hidden" name="param1" value="6"> <input
+						type="submit" value="Add">
+				</form>
+					</c:when>
+				</c:choose>
 			</li>
 		</ul>
 	</div>
@@ -170,22 +237,29 @@
 		<!-- <form id="contact_form"> -->
 
 		<div>
-			<form action="/action_page.php">
+			<form action=#  name="contact" onsubmit="return validate()" >
 				<p>Send us your message. We will get back to you within 24
 					hours!</p>
 
 				<!-- <label for="fname">First Name</label> -->
-				<input type="text" name="name" placeholder="Your name...">
+				<input type="text" name="name" id="contactname" placeholder="Your name..." value=${empty sessionScope.user ? "" : user.getUsername()}>
 
 				<!-- <label for="lname">Last Name</label> -->
-				<input type="text" name="email" placeholder="Your email...">
+				<input type="text" name="email" id="contactemail" placeholder="Your email..." value=${empty sessionScope.user ? "" : user.getEmail()}>
 
 				<!-- <label for="country">Country</label> -->
-				<select name="genre">
-					<option value="australia">Australia</option>
-					<option value="canada">Canada</option>
-					<option value="usa">USA</option>
-				</select> <br /> <input type="submit" value="Submit">
+				<select name="genre" id="contactgenre">
+					<option value="" disabled selected>Favorite Genre...</option>
+					<option value="anime">Anime</option>
+					<option value="romance">Romance</option>
+					<option value="scary">Scary</option>
+				</select>
+				<c:if test="${not empty param.err}">
+					<div class="message">
+						<p>${error}</p>
+					</div>
+				</c:if>
+				<br /> <input type="submit" value="Submit">
 			</form>
 		</div>
 	</div>
